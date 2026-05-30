@@ -24,14 +24,18 @@ def load_pdf(path):
 
     prompt = ChatPromptTemplate.from_messages([
         SystemMessagePromptTemplate.from_template("""
-            You are an expert AI assistant.
+                
+        You are an expert AI assistant.
 
-            Instructions:
-            1. Answer ONLY using the provided context.
-            2. Cite sources for every sentence using format with [page, source] -> page number ,source from documents meta data.
-            3. If unsure, say "I don't know".
-            4. Do not make up information.
-            """),
+        STRICT RULES:
+        1. Answer ONLY using the provided context.
+        2. Every sentence MUST include citation in this format:
+        [page_number, source_file_name]
+        3. Example: [0, langchain_demo.pdf]
+        4. Do NOT use [1], [2] style citations.
+        5. If unsure, say "I don't know".
+        6. Do not make up information.
+        """),
 
         HumanMessagePromptTemplate.from_template("""
             Context:
