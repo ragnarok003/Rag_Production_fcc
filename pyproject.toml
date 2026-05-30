@@ -1,0 +1,13 @@
+[project]
+name = "prod"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "icecream>=2.2.0",
+    "langchain-community>=0.4.2",
+    "langchain-ollama>=1.1.0",
+    "pymupdf>=1.27.2.3",
+    "rich>=15.0.0",
+]
