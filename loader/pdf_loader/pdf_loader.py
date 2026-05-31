@@ -1,7 +1,8 @@
 from langchain_community.document_loaders import PyMuPDFLoader
+from langchain_ollama import ChatOllama
 from rich.markdown import Markdown
 from rich.console import Console
-from langchain_ollama import ChatOllama
+from rich import print
 
 from langchain_core.prompts import (
     ChatPromptTemplate,
@@ -18,7 +19,7 @@ def load_pdf(path):
     documents = loader.load()
     print("DOCUMENTS")
     print("\n\n")
-    csl.print(documents)
+    print(documents)
     print("\n\n")
     
 
@@ -55,6 +56,6 @@ def load_pdf(path):
         "question": "What is this document about?"
     })
 
-    csl.print(Markdown(response.content))
+    print(Markdown(response.content))
 if __name__ == "__main__":
     load_pdf("./docs/langchain_demo.pdf")
